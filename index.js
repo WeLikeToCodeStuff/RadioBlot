@@ -9,6 +9,7 @@ var ParseCoords=($,f=1)=>{let _=[];for(let r of $.split(":"))parseFloat(r)&&_.pu
 
 // Changeable Values
 const randomAntenna = bt.rand() * (40 - 15) + 15;
+const talkgroups = ["EMS", "FIRE", "LAW", "DISPATCH", "OPS"]
 
 const width = 125;
 const height = 125;
@@ -83,6 +84,18 @@ for (var i = 0; i < 4; i++) {
   square(22.25 + (i * 5), 52, 5, 4, screen)
 }
 
+/*for (var i = 0; i < 4; i++) {
+  const randomOption = bt.rand() * (4 - 1) + 1;
+  const randomOption2 = bt.rand() * (3 - 1) + 1;
+  const menu = new bt.Turtle()
+    .jump([22.25 + (i * 5), 51.5])
+    .forward(randomOption)
+    .right(bt.rand() * (100 - 75) + 75)
+    .forward(randomOption2)
+    .right(bt.rand() * (100 - 85) + 85)
+    .forward((randomOption < randomOption2) ? randomOption: randomOption2)
+  drawLines(menu.lines())
+}*/
 
 let usedMenu = []
 for (var i = 0; i < 4; i++) {
@@ -100,6 +113,15 @@ for (var i = 0; i < 4; i++) {
   
   DrawText(menuOption, [24+(i*5), 49], 0.5);
 }
+
+var talkgroup = talkgroups[Math.floor(bt.rand() * talkgroups.length)];
+DrawText(talkgroup, [27, 59], 0.5);
+
+/*buttons
+  .jump([22.25,46])
+  .forward(5)*/
+
+
 
 
 
