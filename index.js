@@ -10,10 +10,8 @@ var ParseCoords=($,f=1)=>{const r=[];for(const f of $.split(":"))parseFloat(f)&&
 // Changeable Values
 const randomAntenna = Math.floor(bt.rand() * (40 - 15) + 15);
 const talkgroups = ["EMS", "FIRE", "LAW", "DISPATCH", "OPS"]
-//const posadjustx = Math.floor(bt.rand() * (71 - -11) + -11)
-//const posadjusty = Math.floor(bt.rand() * (14.5 - -4.5) + -4.5); 
-const posadjustx = 0
-const posadjusty = 0
+const posadjustx = Math.floor(bt.rand() * (71 - -11) + -11)
+const posadjusty = Math.floor(bt.rand() * (14.5 - -4.5) + -4.5); 
 
 const width = 125;
 const height = 125;
