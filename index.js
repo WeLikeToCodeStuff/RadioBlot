@@ -10,8 +10,10 @@ var ParseCoords=($,f=1)=>{const r=[];for(const f of $.split(":"))parseFloat(f)&&
 // Changeable Values
 const randomAntenna = Math.floor(bt.rand() * (40 - 15) + 15);
 const talkgroups = ["EMS", "FIRE", "LAW", "DISPATCH", "OPS"]
-const posadjustx = Math.floor(bt.rand() * (71 - -11) + -11)
-const posadjusty = Math.floor(bt.rand() * (14.5 - -4.5) + -4.5); 
+//const posadjustx = Math.floor(bt.rand() * (71 - -11) + -11)
+//const posadjusty = Math.floor(bt.rand() * (14.5 - -4.5) + -4.5); 
+const posadjustx = 0
+const posadjusty = 0
 
 const width = 125;
 const height = 125;
@@ -23,8 +25,10 @@ const screen = new bt.Turtle();
 const buttons = new bt.Turtle();
 const numbers = new bt.Turtle();
 const keypad = new bt.Turtle();
+const logoM = new bt.Turtle();
+const logo = new bt.Turtle();
 
-const needsRendering = [body, antenna, cknob, vknob, screen, buttons, numbers, keypad]
+const needsRendering = [body, antenna, cknob, vknob, screen, buttons, numbers, keypad, logo]
 
 setDocDimensions(width, height);
 
@@ -151,6 +155,28 @@ DrawText(`*`, [26.5 + ((1 * 5)-5) + posadjustx,37-12 + posadjusty],0.5)
 DrawText(`0`, [26.5 + ((2 * 5)-5) + posadjustx,37-12 + posadjusty],0.5)
 DrawText(`#`, [26.5 + ((3 * 5)-5) + posadjustx,37-12 + posadjusty],0.5)
 
+// sa$90,f$4,sa$0,r$71.57,f$3.162,sa$0,l$71.57,f$3.162,sa$0,r$90,f$4
+const mSize = 1.5
+logoM
+  .jump([30.5 + posadjustx, 71 + posadjusty])
+  .setAngle(90)
+  .forward(4 + mSize)
+  .setAngle(0)
+  .right(71.57)
+  .forward(3.162 + mSize)
+  .setAngle(0)
+  .left(71.57)
+  .forward(3.162 +mSize)
+  .setAngle(0)
+  .right(90)
+  .forward(4 + mSize)
 
+//DrawText(`M`, [30.5 + posadjustx, 71 + posadjusty], 1.5)
 
-needsRendering.forEach((element) => drawLines(element.lines()));
+logo
+  .jump([32 + posadjustx, 69.7 + posadjusty])
+  .arc(360,4)
+
+drawLines(logoM.lines(), {width: 4})
+
+needsRendering.forEach((element) => drawLines(element.lines(), {width: 2}));
